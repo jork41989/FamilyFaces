@@ -24,6 +24,7 @@ import {
   ReloadInstructions,
   Dimensions,
 } from 'react-native/Libraries/NewAppScreen';
+import HomeScreen from './components/HomeScreen';
 
 const App: () => React$Node = () => {
   const [family, setFamily] = useState({});
@@ -34,6 +35,7 @@ const App: () => React$Node = () => {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
+            <HomeScreen />
         </ScrollView>
       </SafeAreaView>
     </>
@@ -43,7 +45,7 @@ const App: () => React$Node = () => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: '#3CDBD3',
+    backgroundColor: '#8AA1B1',
     minHeight: '100%',
     display: 'flex',
     flexDirection: 'column',
@@ -53,7 +55,7 @@ const styles = StyleSheet.create({
     right: 0,
   },
   body: {
-    backgroundColor: '#3CDBD3',
+    backgroundColor: '#8AA1B1',
   },
   sectionContainer: {
     marginTop: 32,
