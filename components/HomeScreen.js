@@ -1,5 +1,5 @@
-import { faMale, faPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import {faMale, faPlus, faUsers} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import React, {memo, useEffect, useState} from 'react';
 import {
   SafeAreaView,
@@ -12,14 +12,13 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-const HomeScreen = (props) => {
-
+const HomeScreen = ({navigation}) => {
   let addButton = (e) => {
-    console.log('hi')
-  }
-  
+    navigation.navigate('Add');
+  };
+
   return (
-    <View style={styles.mainView}>
+    <ScrollView contentContainerStyle={styles.mainView}>
       <Text>Welcome To Family Faces!</Text>
       <View style={styles.familyView}>
         <Text>Family goes Here</Text>
@@ -30,7 +29,7 @@ const HomeScreen = (props) => {
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -40,22 +39,24 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     paddingTop: 20,
+    backgroundColor: '#8AA1B1',
+    minHeight: '100%',
   },
   familyView: {
     paddingTop: 20,
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
     flexWrap: 'wrap',
   },
   addButton: {
     width: 100,
     height: 100,
     backgroundColor: '#B9D8C2',
+    color: '#4A5043',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 25,
   },
 });

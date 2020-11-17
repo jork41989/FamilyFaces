@@ -5,7 +5,7 @@
  * @format
  * @flow strict-local
  */
-
+import 'react-native-gesture-handler';
 import React, {useState} from 'react';
 import {
   SafeAreaView,
@@ -15,6 +15,8 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
 import {
   Header,
@@ -25,23 +27,30 @@ import {
   Dimensions,
 } from 'react-native/Libraries/NewAppScreen';
 import HomeScreen from './components/HomeScreen';
+import addFamilyMember from './components/addFamilyMember';
+
+const Stack = createStackNavigator();
 
 const App: () => React$Node = () => {
   const [family, setFamily] = useState({});
   return (
     <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-            <HomeScreen />
-        </ScrollView>
-      </SafeAreaView>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="Home"
+          headerMode="screen"
+          backgroundColor="#8AA1B1">
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{title: 'Welcome'}}
+          />
+          <Stack.Screen name="Add" component={addFamilyMember} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </>
   );
 };
-
 
 const styles = StyleSheet.create({
   scrollView: {
